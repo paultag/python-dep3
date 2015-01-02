@@ -20,6 +20,9 @@ def get_headers(fileobj):
             continue
 
         if line.startswith(" "):
+            if last is None:
+                break
+
             data[last] += line.strip() + "\n"
             continue
 
