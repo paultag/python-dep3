@@ -6,7 +6,10 @@ def get_headers(fileobj):
     last = None
 
     for line in fileobj.readlines():
-        line = line.decode('utf-8')
+        try:
+            line = line.decode('utf-8')
+        except UnicodeDecodeError:
+            return {}  # ABORT
 
         if line.startswith("diff"):
             break
