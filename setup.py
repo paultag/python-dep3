@@ -8,7 +8,7 @@ setup(
     name=__appname__,
     version=__version__,
     scripts=[],
-    packages=['dionysus'],
+    packages=['dep3'],
     author="Paul Tagliamonte",
     author_email="tag@pault.ag",
     long_description=long_description,
