@@ -6,22 +6,22 @@ def get_headers(fileobj):
     last = None
 
     for line in fileobj.readlines():
-        if line.startswith("diff"):
+        if line.startswith(b"diff"):
             break
 
         line = line.rstrip()
-        if line == "":
+        if line == b"":
             break
 
-        if line.rstrip() == " .":
-            data[last] += "\n"
+        if line.rstrip() == b" .":
+            data[last] += b"\n"
             continue
 
-        if line.startswith(" "):
-            data[last] += line.strip() + "\n"
+        if line.startswith(b" "):
+            data[last] += line.strip() + b"\n"
             continue
 
-        last, value = line.split(":", 1)
+        last, value = line.split(b":", 1)
         value = value.strip()
         data[last] = value
     return data
